@@ -4,8 +4,8 @@ flask:
     - "5000:5000"
     - "6000:6000"
   environment:
-    ENV: DEV
-    # ENV: PROD
+    # ENV: DEV
+    ENV: PROD
   volumes:
   - ./web_app:/app
   links:
