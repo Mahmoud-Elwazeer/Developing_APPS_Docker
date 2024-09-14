@@ -21,5 +21,4 @@ echo 'server {
 }' | sudo tee /etc/nginx/conf.d/myapp.conf
 
 sudo nginx -t
-
 sudo service nginx restart
