@@ -6,6 +6,7 @@ WORKDIR /app
 
 COPY requirements.txt /app
 COPY web_app /app
+COPY cmd.sh /
 
 RUN pip3 install -r requirements.txt
 
@@ -16,4 +17,5 @@ EXPOSE 5000 6000
 
 # for production mode using uWSGI
 USER elwazeer
-CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "app:app"]
+# CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "app:app"]
+CMD ["/cmd.sh"]
