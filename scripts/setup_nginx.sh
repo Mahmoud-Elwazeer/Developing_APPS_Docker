@@ -1,3 +1,5 @@
+sudo apt-get -y update
+sudo apt-get install -y nginx
 sudo rm /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 
