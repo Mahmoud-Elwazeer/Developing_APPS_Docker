@@ -14,3 +14,8 @@
 > **Additional useful flags**
 * **--rm: remove container after stoping it**
 * **--name <name_container>: add name for container**
+
+## Testing
+
+* **curl localhost:5000**
+> * Output: Hello World!
