@@ -14,5 +14,8 @@ echo \
 sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+sudo usermod -aG docker $(whoami)
 
 sudo apt install nginx -y
+
+sudo apt install python3-pip -y

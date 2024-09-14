@@ -1,19 +1,20 @@
-flask:
-  build: .
-  ports:
-    - "5000:5000"
-    - "6000:6000"
-  environment:
-    # ENV: DEV
-    ENV: PROD
-  volumes:
-  - ./web_app:/app
-  links:
-    - dnmonster
-    - redis
+services:
+  flask:
+    build: .
+    ports:
+      - "5000:5000"
+      - "6000:6000"
+    environment:
+      # ENV: DEV
+      ENV: PROD
+    volumes:
+    - ./web_app:/app
+    links:
+      - dnmonster
+      - redis
 
-dnmonster:
-  image: amouat/dnmonster:1.0
+  dnmonster:
+    image: amouat/dnmonster:1.0
 
-redis:
-  image: redis:7.2
+  redis:
+    image: redis:7.2
