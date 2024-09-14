@@ -5,6 +5,7 @@
 ## RUN
 
 * **docker run -d -p 5000:5000 simple_wep_app**
+* **docker run -e "ENV=DEV" -d -p 5000:5000 simple_web_app**
 
 ## Notes
 
