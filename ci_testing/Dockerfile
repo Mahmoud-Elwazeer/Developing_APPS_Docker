@@ -2,6 +2,7 @@ FROM jenkins/jenkins:lts
 
 USER root
 RUN apt-get update \
+    && apt install sudo -y \
     && apt-get install ca-certificates curl -y \
     && install -m 0755 -d /etc/apt/keyrings \
     && curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc \

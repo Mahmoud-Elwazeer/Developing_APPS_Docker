@@ -1,0 +1,17 @@
+services:
+  flask:
+    build: .
+    expose:
+      - "5000"
+    environment:
+      # ENV: DEV
+      ENV: PROD
+    links:
+      - dnmonster
+      - redis
+
+  dnmonster:
+    image: amouat/dnmonster:1.0
+
+  redis:
+    image: redis:7.2
