@@ -1,0 +1,32 @@
+services:
+  proxy:
+    image: deploy_flask
+    links:
+      - flask
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PROXY=http://flask:5000
+    # depends_on:
+    #   - flask  # Ensure proxy starts after Flask is ready
+
+  flask:
+    image: simple_web_app
+    # ports:
+    #   - "5000:5000"
+    #   - "6000:6000"
+    environment:
+      # ENV: DEV
+      ENV: PROD
+    volumes:
+    - ./web_app:/app
+    links:
+      - dnmonster
+      - redis
+
+  dnmonster:
+    image: amouat/dnmonster:1.0
+
+  redis:
+    image: redis:7.2
