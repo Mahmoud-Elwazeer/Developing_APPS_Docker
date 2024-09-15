@@ -20,3 +20,10 @@
 
 * **curl localhost:5000**
 > * Output: Hello World!
+
+## Deployment
+
+* **cd ../deploy**
+* **docker build -t deploy_flask .**
+* **cd ../simple_web_app**
+* **docker compose -f prod-mode.yml up**

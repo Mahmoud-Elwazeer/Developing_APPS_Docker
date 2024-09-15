@@ -1,0 +1,35 @@
+services:
+  flask:
+    build:
+      context: ./simple_web_app
+      dockerfile: Dockerfile
+    image: simple_web_app_flask
+    # ports:
+    #   - "5000:5000"
+    #   - "6000:6000"
+    environment:
+      - ENV=PROD
+    volumes:
+      - ./simple_web_app/web_app:/app
+    depends_on:
+      - dnmonster
+      - redis
+
+  dnmonster:
+    image: amouat/dnmonster:1.0
+
+  redis:
+    image: redis:7.2
+
+  proxy:
+    build:
+      context: ./deploy
+      dockerfile: Dockerfile
+    image: deploy_flask
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PROXY=http://flask:5000
+    depends_on:
+      - flask

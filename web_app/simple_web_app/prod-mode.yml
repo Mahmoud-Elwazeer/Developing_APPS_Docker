@@ -12,7 +12,7 @@ services:
     #   - flask  # Ensure proxy starts after Flask is ready
 
   flask:
-    image: simple_web_app
+    image: simple_web_app_flask
     # ports:
     #   - "5000:5000"
     #   - "6000:6000"
